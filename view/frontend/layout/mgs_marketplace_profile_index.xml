@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
     <body>
+        <referenceBlock name="page.main.title"> 
+            <action method="setPageTitle"> 
+                <argument translate="true" name="title" xsi:type="string">Marketplace Edit Seller Profile</argument> 
+            </action> 
+        </referenceBlock>
         <referenceContainer name="content">
             <block class="MGS\Marketplace\Block\Profile\Index" name="profile.index" template="MGS_Marketplace::profile/index.phtml"/>
         </referenceContainer>
