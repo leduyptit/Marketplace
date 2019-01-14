@@ -72,7 +72,7 @@ class BecomeSellerPost extends \Magento\Framework\App\Action\Action
 
     /**
      * create the seller from post value
-     * @return int - created seller id
+     * @return int - created seller id 
      */
     protected function saveSeller()
     {

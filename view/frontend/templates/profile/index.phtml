@@ -4,6 +4,7 @@
  *
  */
 ?>
+
 <form action="<?php echo $block->getPostAction(); ?>" enctype="multipart/form-data" method="post" id="form-profile-validate" data-role="form-profile-validate" novalidate="novalidate"> 
     <?php echo $block->getBlockHtml('formkey')?>
     <div class="mgs-profile-form-content">
@@ -19,7 +20,7 @@
             <div class="field profile required">
                 <label for="twitter_id">Twitter ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="twitter_id" id="twitter_id" data-role="twitter_id" placeholder="Twitter ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="twitter_id" id="twitter_id" value="<?= $block->escapeHtmlAttr($block->getStoreId()) ?>" data-role="twitter_id" placeholder="Twitter ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">

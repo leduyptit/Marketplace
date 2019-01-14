@@ -10,6 +10,7 @@ class EditPost extends \Magento\Framework\App\Action\Action
     protected $formKeyValidator;
     protected $helper;
     protected $customerSession;
+    protected $storeFactory;
 
     /**
      * @param \Magento\Framework\App\Action\Context $context
@@ -19,12 +20,14 @@ class EditPost extends \Magento\Framework\App\Action\Action
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\Data\Form\FormKey\Validator $formKeyValidator,
         \MGS\Marketplace\Helper\Data $helper,
-        \Magento\Customer\Model\Session $customerSession
+        \Magento\Customer\Model\Session $customerSession,
+        \MGS\Marketplace\Model\StoreFactory $storeFactory
     ) {
         parent::__construct($context);
         $this->formKeyValidator = $formKeyValidator;
         $this->helper = $helper;
         $this->customerSession = $customerSession;
+        $this->storeFactory = $storeFactory;
     }
     public function execute()
     {
@@ -47,13 +50,13 @@ class EditPost extends \Magento\Framework\App\Action\Action
                 $postData = (array) $this->getRequest()->getPost();
                 $customerId = $this->customerSession->getCustomer()->getId();
                 if (!empty($postData)) {
-                	return $this->saveStoreInfo($customerId, $postData);
+                    $this->saveStoreInfo($customerId, $postData);
                 }
             } catch (\Exception $e) {
                 $this->messageManager->addError(__($e->getMessage()));
             }
         }
-        // return $resultRedirect->setPath('*/*/edit');
+        // return $resultRedirect->setPath('mgs_marketplace/profile');
     }
 
     /**
@@ -63,6 +66,11 @@ class EditPost extends \Magento\Framework\App\Action\Action
      */
     protected function saveStoreInfo($customerId, $postData)
     {
-        return 0;
+        if ($customerId && $postData) {
+            $resultPage = $this->storeFactory->create();
+            $collection = $resultPage->getCollection();
+            var_dump($collection->getData());
+            exit;
+        }
     }
 }
