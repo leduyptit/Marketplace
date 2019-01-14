@@ -47,7 +47,8 @@ class EditPost extends \Magento\Framework\App\Action\Action
 
         if ($validFormKey && $this->getRequest()->isPost()) {
             try {
-                $postData = (array) $this->getRequest()->getPost();
+                $postData = $this->getRequest()->getPostValue();
+                // $postData = (array) $this->getRequest()->getPost();
                 $customerId = $this->customerSession->getCustomer()->getId();
                 if (!empty($postData)) {
                     $this->saveStoreInfo($customerId, $postData);
@@ -56,7 +57,7 @@ class EditPost extends \Magento\Framework\App\Action\Action
                 $this->messageManager->addError(__($e->getMessage()));
             }
         }
-        // return $resultRedirect->setPath('mgs_marketplace/profile');
+        return $resultRedirect->setPath('mgs_marketplace/profile');
     }
 
     /**
@@ -67,10 +68,18 @@ class EditPost extends \Magento\Framework\App\Action\Action
     protected function saveStoreInfo($customerId, $postData)
     {
         if ($customerId && $postData) {
-            $resultPage = $this->storeFactory->create();
-            $collection = $resultPage->getCollection();
-            var_dump($collection->getData());
-            exit;
+            $store = $this->storeFactory->create();
+            $id_post_update = 1;
+            // $data = $this->getRequest()->getPostValue();
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $storeUpdate = $objectManager->create('MGS\Marketplace\Model\Store')->load($id_post_update);
+            // $objectManager = \Magento\Framework\App\ObjectManager::getInstance();  
+            // $storeUpdate = $store->load($id_post_update);
+            // $storeUpdate->setTwiiter('test-test');
+            // $storeUpdate->save();
+            $data = array('twiiter' => 'Simple Question', 'facebook' => 'Question Description');
+            $storeUpdate->setData($data);
+            $storeUpdate->save();
         }
-    }
+    }   
 }

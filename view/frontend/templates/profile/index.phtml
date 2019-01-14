@@ -4,7 +4,9 @@
  *
  */
 ?>
-
+<?php 
+    $storeData = $block->getStore();
+?>
 <form action="<?php echo $block->getPostAction(); ?>" enctype="multipart/form-data" method="post" id="form-profile-validate" data-role="form-profile-validate" novalidate="novalidate"> 
     <?php echo $block->getBlockHtml('formkey')?>
     <div class="mgs-profile-form-content">
@@ -18,45 +20,45 @@
                 </button>
             </legend>
             <div class="field profile required">
-                <label for="twitter_id">Twitter ID</label>
+                <label for="twiiter">Twitter ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="twitter_id" id="twitter_id" value="<?= $block->escapeHtmlAttr($block->getStoreId()) ?>" data-role="twitter_id" placeholder="Twitter ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="twiiter" id="twiiter" value="<?= $block->escapeHtml($storeData[0]['twiiter']) ?>" data-role="twiiter" placeholder="Twitter ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="facebook_id">Facebook ID</label>
+                <label for="facebook">Facebook ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="facebook_id" id="facebook_id" data-role="facebook_id" placeholder="Facebook ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="facebook" id="facebook" value="<?= $block->escapeHtml($storeData[0]['facebook']) ?>" data-role="facebook" placeholder="Facebook ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="instagram_id">Instagram ID</label>
+                <label for="instagram">Instagram ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="instagram_id" id="instagram_id" data-role="instagram_id" placeholder="Instagram ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="instagram" id="instagram" value="<?= $block->escapeHtml($storeData[0]['instagram']) ?>" data-role="instagram" placeholder="Instagram ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="google_plus_id">Google Plus ID</label>
+                <label for="google_plus">Google Plus ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="google_plus_id" id="google_plus_id" data-role="google_plus_id" placeholder="Google Plus ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="google_plus" id="google_plus" value="<?= $block->escapeHtml($storeData[0]['google_plus']) ?>" data-role="google_plus" placeholder="Google Plus ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="youtube_id">Youtube ID</label>
+                <label for="youtube">Youtube ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="youtube_id" id="youtube_id" data-role="youtube_id" placeholder="Youtube ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="youtube" id="youtube" value="<?= $block->escapeHtml($storeData[0]['youtube']) ?>" data-role="youtube" placeholder="Youtube ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="vimeo_id">Vimeo ID</label>
+                <label for="vimeo">Vimeo ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="vimeo_id" id="vimeo_id" data-role="vimeo_id" placeholder="Vimeo ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="vimeo" id="vimeo" value="<?= $block->escapeHtml($storeData[0]['vimeo']) ?>" data-role="vimeo" placeholder="Vimeo ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="pinterst_id">Pinterest ID</label>
+                <label for="pinterest">Pinterest ID</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="pinterst_id" id="pinterst_id" data-role="pinterst_id" placeholder="Pinterest ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="pinterest" id="pinterest" value="<?= $block->escapeHtml($storeData[0]['pinterest']) ?>" data-role="pinterest" placeholder="Pinterest ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
@@ -68,44 +70,44 @@
             <div class="field profile required">
                 <label for="shop_title">Shop Title</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="shop_title" id="shop_title" data-role="shop_title" placeholder="Twitter ID" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="shop_title" id="shop_title" value="<?= $block->escapeHtml($storeData[0]['shop_title']) ?>" data-role="shop_title" placeholder="Twitter ID" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="company_locality">Company Locality</label>
+                <label for="shop_locality">Company Locality</label>
                 <div class="control">
-                    <input type="text" class="required-entry mgs-marketplace-full-width" name="company_locality" id="company_locality" data-role="company_locality" placeholder="Company Locality" aria-required="true" />
+                    <input type="text" class="required-entry mgs-marketplace-full-width" name="shop_locality" id="shop_locality" value="<?= $block->escapeHtml($storeData[0]['shop_locality']) ?>" data-role="shop_locality" placeholder="Company Locality" aria-required="true" />
                 </div>
             </div>
             <div class="field profile required">
-                <label for="company_locality">Company Description</label>
+                <label for="shop_description">Company Description</label>
                 <div class="control">
-                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="company_description" id="company_description">Company Description</textarea>
+                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="shop_description" id="shop_description"><?= $block->escapeHtml($storeData[0]['shop_description']) ?></textarea>
                 </div>
             </div>
             <div class="field profile required">
                 <label for="return_policy">Return Policy</label>
                 <div class="control">
-                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="return_policy" id="return_policy">Return Policy</textarea>
+                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="return_policy" id="return_policy"><?= $block->escapeHtml($storeData[0]['return_policy']) ?></textarea>
                 </div>
             </div>
             <div class="field profile required">
-                <label for="shipping_policy">Shipping Policy</label>
+                <label for="shop_policy">Shipping Policy</label>
                 <div class="control">
-                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="shipping_policy" id="shipping_policy">Shipping Policy</textarea>
+                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="shop_policy" id="shop_policy"><?= $block->escapeHtml($storeData[0]['shop_policy']) ?></textarea>
                 </div>
             </div>
             <div class="field profile required">
                 <label for="meta_keywords">Meta Keywords</label>
                 <label class="control-notification">(Enter Meta Keywords Comma(',') Separated..)</label>
                 <div class="control">
-                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="meta_keywords" id="meta_keywords">Meta Keywords</textarea>
+                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="meta_keywords" id="meta_keywords"><?= $block->escapeHtml($storeData[0]['meta_keywords']) ?></textarea>
                 </div>
             </div>
             <div class="field profile required">
                 <label for="meta_description">Meta Description</label>
                 <div class="control">
-                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="meta_description" id="meta_description">Meta Description</textarea>
+                    <textarea type="text" class="required-entry mgs-marketplace-full-width" name="meta_description" id="meta_description"><?= $block->escapeHtml($storeData[0]['meta_description']) ?></textarea>
                 </div>
             </div>
         </fieldset>
@@ -130,11 +132,11 @@ require([
         }
     });
     editor = new tinyMceWysiwygSetup(
-        'company_description',
+        'shop_description',
         config
     );
     editor.turnOn();
-    jQuery('#company_description')
+    jQuery('#shop_description')
         .addClass('wysiwyg-editor')
         .data(
             'wysiwygEditor',
